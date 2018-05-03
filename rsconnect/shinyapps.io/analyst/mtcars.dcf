@@ -5,8 +5,8 @@ account: analyst
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 336620
-bundleId: 1353218
+bundleId: 1353356
 url: https://analyst.shinyapps.io/mtcars/
-when: 1525335177.24647
+when: 1525340256.13847
 asMultiple: FALSE
 asStatic: FALSE
