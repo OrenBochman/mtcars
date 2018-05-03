@@ -1,0 +1,12 @@
+name: mtcars
+title: mtcars
+username:
+account: analyst
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 336620
+bundleId: 1353218
+url: https://analyst.shinyapps.io/mtcars/
+when: 1525335177.24647
+asMultiple: FALSE
+asStatic: FALSE
