@@ -298,4 +298,7 @@ plot(hc)
 
 # References
 
-1 Harold V. Henderson and Paul F. Velleman  [Building Multiple Regression Models Interactively](http://www.jstor.org/stable/2530428) Biometrics, Vol. 37, No. 2 (Jun., 1981), pp. 391-411 International Biometric Society Accessed: 28/04/2019 08:51
+1. Harold V. Henderson and Paul F. Velleman [Building Multiple Regression Models Interactively](http://www.jstor.org/stable/2530428) Biometrics, Vol. 37, No. 2 (Jun., 1981), pp. 391-411 International Biometric Society Accessed: 28/04/2019 08:51
+
+2. R. R. Hocking [A Biometrics Invited Paper. The Analysis and Selection of Variables in Linear Regression](http://www.jstor.org/stable/2529336) Biometrics, Vol. 32, No. 1 (Mar., 1976), pp. 1-49 International Biometric Society Accessed: 28/06/2014 08:27
+2. [Motor Trend](http://www.motortrend.com/) 1974
