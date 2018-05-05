@@ -11,36 +11,37 @@ require(graphics)
 
 # background
 
-mtcars an acronym for "Motor Trend Car Road Tests"  is a dataset extracted from 1974 [Motor Trend](http://www.motortrend.com/) US magazine
+MTCARS or for "Motor Trend Car Road Tests"  is a data set extracted from  March, April, June and July issues of 1974 [Motor Trend](http://www.motortrend.com/) US magazine. This example of multivariate data had been suggested by Dr. R. J. Freund, Institute of Statistics, Texas A&M University to Dr Ronald R. Hocking  known for "Methods and Applications of Linear Models : Regression and the Analysis of Variance"
+for an invited paper to Biometrics journal. The paper titled "A Biometrics Invited Paper. The Analysis and Selection of Variables in Linear Regression"
 with 10 features for 32 cars models. It is included in r datasets package.
 
-the features are crypticaly coded as follow:
+the features are cryptically coded as follow:
 
 y   [, 1]	 mpg	 Miles/(US) gallon
-x1  [, 8]	 vs	   V/S orignally Engine Shape (Straight (1) or V(O))
+x1  [, 8]	 vs	   V/S originally Engine Shape (Straight (1) or V(O))
 x2  [, 2]	 cyl	 Number of cylinders
-x3  [, 9]	 am	   Transmission type (0 = automatic, 1 = manual) - was originaly (Manual (1) or Auto (C))
-x4  [,10]	 gear	 Number of forward gears originaly X4 Number of Transmission Speeds
-x5  [, 3]	 disp	 Displacement (cu.in.) originaly  Engine Size (Cubic Inches)
+x3  [, 9]	 am	   Transmission type (0 = automatic, 1 = manual) - was original (Manual (1) or Auto (C))
+x4  [,10]	 gear	 Number of forward gears original X4 Number of Transmission Speeds
+x5  [, 3]	 disp	 Displacement (cu.in.) originally  Engine Size (Cubic Inches)
 x6  [, 4]	 hp	   Gross horsepower
 x7  [,11]	 carb	 Number of carburetor barrels
-x8  [, 5]	 drat	 Rear axle ratio originaly (Final Drive Ratio)
+x8  [, 5]	 drat	 Rear axle ratio originally (Final Drive Ratio)
 x9  [, 6]	 wt	   Weight (1000 lbs)
 x10 [, 7]	 qsec	 1/4 mile time in seconds
 
-The data were taken from the March, April, June and July issues of 1974. This example was suggested by Dr. R. J. Freund, Institute of Statistics, Texas A&M University
+
 
 Analysis was done on a 1970 version of SELECT, a FS program, a BE program and, as a check, all possible regressions were evaluated. I.e. three programs were used. Hocking reports that the best model used x3 (am) , x9 (wt) and x10 (qsec) which was the model I arrived at. There is something of a challance here as these are not the best predictors individually and provide an advantage when used together.
 
-The dataset was mistakenly credited to Henderson and Velleman (1981), "Building multiple regression models interactively". *Biometrics*, **37**, 391–411. However, Henderson and Velleman, were reponding to a much longer invited paper by Hocking (1976). Considering the paper by Hocking was 50 pages long - with 6 pages of citations, it must have taken a while to create the data set, analyse and write it up. I fund it rather quaint that these invited papers were published in an established paper on Biometrics were using car data which sugests that looking at car data might be have more of a universal apeal than any data set in their own domain.
+The dataset was mistakenly credited to Henderson and Velleman (1981), "Building multiple regression models interactively". *Biometrics*, **37**, 391–411. However, Henderson and Velleman, were responding to a much longer invited paper by Hocking (1976). Considering the paper by Hocking was 50 pages long - with 6 pages of citations, it must have taken a while to create the data set, analyse and write it up. I fund it rather quaint that these invited papers were published in an established paper on Biometrics were using car data which suggests that looking at car data might be have more of a universal appeal than any data set in their own domain.
 
-Hocking (1976) discussess at length the issue of feature selection and how to go about finding an subset for producing the optimal model. The focus is goodness of fit ad not predictive power. Also since it is regression most of the discussion is based on analytical motivation and ridge regression (i.e. regression with wight decay) is considered. Stepwise methods are also criticised
+Hocking (1976) discusses at length the issue of feature selection and how to go about finding an subset for producing the optimal model. The focus is goodness of fit ad not predictive power. Also since it is regression most of the discussion is based on analytic motivation and ridge regression (i.e. regression with wight decay) is considered. Step-wise methods are also criticized
 
-In the abstract the authors are offering a moden look at data science stating how automated tools fail to consider features such as nonlinearity, collinearity, outliers, and points with high leverage which can dramaticaly affect automated analyses yet remain undetected. They recommend a exploratory aproach using a interactive software package rather than one that provides an automated solution. 
+In the abstract the authors are offering a modern look at data science stating how automated tools fail to consider features such as non-linearity, col-linearity, outliers, and points with high leverage which can dramatically affect automated analyses yet remain undetected. They recommend a exploratory approach using a interactive software package rather than one that provides an automated solution. 
 
-Our approach constrasts with such automated procedures as stepwise, forward selection, backwards elimination, best subsets and principal components regression. 
+Our approach contrasts with such automated procedures as step-wise, forward selection, backwards elimination, best subsets and principal components regression. 
 
-All this is fairly interesting because mtcars is possibly one of the first multidimensional datasets encountered by sttudents of multiple regression. There are many student projects based on mtcars and even interpid medium articles claiming to make a serious analysis at this dataset.
+All this is fairly interesting because mtcars is possibly one of the first multidimensional datasets encountered by students of multiple regression. There are many student projects based on mtcars and even intrepid medium articles claiming to make a serious analysis at this dataset.
 ```{r}
 cols <- colnames(mtcars)
 
@@ -48,7 +49,7 @@ cols <- colnames(mtcars)
 apply(mtcars,2,typeof)
 ```
 
-nothing too exciting - all are double so no special treatment of nominals vars though "am" is the transmision type is a categorical variable.
+nothing too exciting - all are double so no special treatment of nominal vars though "am" is the transmission type is a categorical variable.
 
 # inspect the data
 ```{r exploratory basic}
@@ -114,7 +115,7 @@ print(ev$values)
 ```
 
 
-if we also want to get the pvalues we need to do this:
+if we also want to get the p values we need to do this:
 ```{r}
 library("Hmisc")
 correlations2 <- rcorr(as.matrix(mtcars))
@@ -164,8 +165,8 @@ chart.Correlation(mtcars, histogram=TRUE, pch=19)
 ```
 this chart shows:
 * variable distribution (diagonal),
-* the bivariate scatter plots + fit (blow diagonal)
-* the correlation coefficent with its significnce marked schmaticaly (above diagonal)
+* the bi-variate scatter plots + fit (blow diagonal)
+* the correlation coefficient with its significance marked schematically (above diagonal)
 
 
 # N-Way Frequency Table 
@@ -174,7 +175,7 @@ this chart shows:
 y = ftable(xtabs(formula = ~  gear + cyl + carb , data=mtcars))
 y
 ```
-this is not very useful data - however as it realy applies to categorical data
+this is not very useful data - however as it relay applies to categorical data
 
 # Regression
 
@@ -284,9 +285,9 @@ step <- stepAIC(fit, direction="both")
 step$anova # display results
 
 ```
-concluion - best fit model is with just wt, am and qsec
+conclusion - best fit model is with just wt, am and qsec
 wt - (weight )
-am - (transmition)
+am - (transmission)
 qsec - (1/4 mile time)
 
 ```{r}
@@ -294,3 +295,7 @@ d <- dist(as.matrix(mtcars))   # find distance matrix
 hc <- hclust(d)                # apply hirarchical clustering 
 plot(hc) 
 ```
+
+# References
+
+1 Harold V. Henderson and Paul F. Velleman  [Building Multiple Regression Models Interactively](http://www.jstor.org/stable/2530428) Biometrics, Vol. 37, No. 2 (Jun., 1981), pp. 391-411 International Biometric Society Accessed: 28/04/2019 08:51
